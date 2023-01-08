@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SpawnPoint : MonoBehaviour
 {
-    [SerializeField] private GameObject _enemy;
+    [SerializeField] private Enemy _enemy;
     [SerializeField] private Transform[] _points;
 
     private WaitForSeconds _delay = new WaitForSeconds(2f);
@@ -19,7 +19,7 @@ public class SpawnPoint : MonoBehaviour
     {
         foreach (var point in _points)
         {
-            GameObject newObject = Instantiate(_enemy, point.position, Quaternion.identity);
+            Enemy newEnemy  = Instantiate(_enemy, point.position, Quaternion.identity);
 
             yield return _delay;
         }
